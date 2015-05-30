@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Appointments</title>
+    <link rel="stylesheet" href="css/meyer_css_reset.css"
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+  <body>
+    <main class="main-content">
+    </main>
+
+      <!--404-->
+
+      <script id="404" type="text/html">
+        <header class="page-header">
+          <h1 class="page-title">404 not found</h1>
+        </header>
+        <div class="page-content stack-form">
+          <a href="#users" class="btn btn-primary">View all users</a>
+        </div>
+      </script>
+
+      <!--Appointment List-->
+
+      <script type="text/html" id="appt-list">
+        <div>
+          <a href="#appts">Icon</a>
+          <h1>Appointments</h1>
+          <a href="#appts/new">+</a>
+        </div>
+        <div>
+          <input type=search>
+          <ul name="appt-list">
+            <% _.chain(m.appts.values).forEach(function (appt) { %>
+            <a href="#appts/<%- appt.name %>">
+              <li name="appt">
+                <span><%-m.time%></span>
+                <span><%-m.date%></span>
+                <span><%-m.name%></span>
+                <span><%-m.street%></span>
+                <span><%-m.city%></span>
+                <span><%-m.state%></span>
+              </li>
+            </a>
+            <% }; %>
+          </ul>
+        </div>
+      </script>
+
+      <!--Appointment Details-->
+
+      <script type="text/html" id="appt-details">
+        <div>
+          <a href="#appts">&larr;</a>
+          <h1>Details</h1>
+          <a href="#appts/edit">Edit</a>
+        </div>
+        <div>
+          <span><%-m.time%></span>
+          <span><%-m.date%></span>
+          <span><%-m.name%></span>
+          <span><%-m.street%></span>
+          <span><%-m.city%></span>
+          <span><%-m.state%></span>
+        </div>
+
+      </script>
+
+      <!--New-->
+
+      <script type="text/html" id="appt-new">
+        <div>
+          <a href="#appts">&larr;</a>
+          <h1>New Appointment</h1>
+        </div>
+        <div>
+          <form>
+            <div>
+              <input name="name" type="text" placeholder="Name" value="<%- m.appt.name %>" required>
+            </div>
+            <div>
+              <input name="street" type="text" placeholder="Street" value="<%- m.appt.street %>" required>
+              <input name="city" type="text" placeholder="City" value="<%- m.appt.city %>" required>
+              <input name="state" type="text" placeholder="State" value="<%- m.appt.state %>" required>
+            </div>
+            <div>
+              <input name="date" type="text" placeholder="Date" value="<%- m.appt.date %>" required>
+            </div>
+            <div>
+              <input name="time" type="text" placeholder="Time" value="<%- m.appt.time %>" required>
+            </div>
+          </form>
+        </div>
+        <div>
+          <button>Save</button>
+        </div>
+      </script>
+
+      <!--Edit-->
+
+      <script type="text/html" id="appt-edit">
+        <div>
+          <a href=#appts>&larr;</a>
+          <h1>Edit Appointment</h1>
+        </div>
+        <div>
+          <form>
+            <div>
+              <input name="name" type="text" placeholder="Name" value="<%- m.appt.name %>" required>
+            </div>
+            <div>
+              <input name="street" type="text" placeholder="Street" value="<%- m.appt.street %>" required>
+              <input name="city" type="text" placeholder="City" value="<%- m.appt.city %>" required>
+              <input name="state" type="text" placeholder="State" value="<%- m.appt.state %>" required>
+            </div>
+            <div>
+              <input name="date" type="text" placeholder="Date" value="<%- m.appt.date %>" required>
+            </div>
+            <div>
+              <input name="time" type="text" placeholder="Time" value="<%- m.appt.time %>" required>
+            </div>
+          </form>
+        </div>
+        <div>
+          <button>Save</button>
+        </div>
+      </script>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/backbone/backbone-min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/goto.js"></script>
+    <script src="js/show.js"></script>
+    <script src="js/appt.js"></script>
+    <script src="js/object_store.js"></script>
+    <script src="js/appts_controller.js"></script>
+    <script src="js/new_controller.js"></script>
+    <script src="js/edit_controller.js"></script>
+    <script src="js/appt_details_controller.js"></script>
+    <script src="js/init.js"></script>
+  </body>
+</html>
