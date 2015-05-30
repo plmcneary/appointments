@@ -1,5 +1,5 @@
 (function () {
-  // When the url is #users
+  // When the url is #appts
   app.router.route('appts', apptListController);
 
   // When the url is empty (the default route)
