@@ -1,7 +1,6 @@
 $(function () {
-  'use strict';
 
-  app.apptList = new app.ObjectStore('apptList', localStorage);
+  app.appts = new app.ObjectStore('appts', localStorage);
 
   Backbone.history.start();
 });

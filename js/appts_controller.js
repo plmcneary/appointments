@@ -7,6 +7,6 @@
 
   // The user list "controller" function
   function apptListController () {
-    app.show('appt-list', { users: app.users });
+    app.show('appt-list', app.appts.all);
   }
 })();

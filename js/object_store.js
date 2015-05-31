@@ -32,11 +32,11 @@ app.ObjectStore.prototype = {
    },
 
   load: function() {
-    return JSON.parse(this.storage.getItem(this.key)) || '{}';
+    return JSON.parse(this.storage.getItem(this.key) || '{}');
   },
 
   save: function() {
-    this.storage.setItem(this.key, JSON.stringify(this.all))
+    this.storage.setItem(this.key, JSON.stringify(this.all));
   }
 
 };

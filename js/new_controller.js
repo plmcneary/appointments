@@ -1,16 +1,18 @@
 app.router.route('appts/new', function () {
 
   // Render the view
-  app.show('new-appt', { user: new app.User(), title: 'New User' });
+  app.show('appt-new', { appt: new app.Appt()});
 
   // Bind our events
 
-  $('.user-form').on('submit', function (e) {
+
+
+  $("[name='appt-form']").on('submit', function (e) {
     e.preventDefault();
 
-    app.users.add(new app.User(app.serializeForm(this)));
+    app.appts.add(new app.Appt(app.serializeForm(this)));
 
-    app.goto('users');
+    app.goto('appts');
   });
 
 });
