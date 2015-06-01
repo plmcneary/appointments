@@ -1,11 +1,6 @@
 app.router.route('appts/new', function () {
 
-  // Render the view
   app.show('appt-new', { appt: new app.Appt()});
-
-  // Bind our events
-
-
 
   $("[name='appt-form']").on('submit', function (e) {
     e.preventDefault();

@@ -16,9 +16,9 @@ app.ObjectStore.prototype = {
     this.save();
   },
 
-  update: function(name, newAppts) {
+  update: function(name, newAppt) {
     this.remove(name);
-    this.add(newAppts);
+    this.add(newAppt);
     this.save();
   },
 

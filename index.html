@@ -17,7 +17,7 @@
           <h1 >404 not found</h1>
         </header>
         <div>
-          <a href="#appts" class="btn btn-primary">View all appointments</a>
+          <a href="#appts">View all appointments</a>
         </div>
       </script>
 
@@ -25,7 +25,7 @@
 
       <script type="text/html" id="appt-list">
         <div>
-          <a href="#appts">Icon</a>
+          <span>Icon</span>
           <h1>Appointments</h1>
           <a href="#appts/new">+</a>
         </div>
@@ -33,14 +33,14 @@
           <input type=search>
           <ul name="appt-list">
             <% for (key in m) { %>
-            <a href="#appts/<%- m[key].name %>">
+            <a href="#appts/<%- m[key].name%>/details">
               <li name="appt">
-                <span><%-m[key].name%></span>
-                <span><%-m[key].street%></span>
-                <span><%-m[key].city%></span>
-                <span><%-m[key].state%></span>
-                <span><%-m[key].date%></span>
-                <span><%-m[key].time%></span>
+                <span><%- m[key].name%></span>
+                <span><%- m[key].street%></span>
+                <span><%- m[key].city%></span>
+                <span><%- m[key].state%></span>
+                <span><%- m[key].date%></span>
+                <span><%- m[key].time%></span>
               </li>
             </a>
             <% } %>
@@ -54,15 +54,15 @@
         <div>
           <a href="#appts">&larr;</a>
           <h1>Details</h1>
-          <a href="#appts/edit">Edit</a>
+          <a href="#appts/<%-m.name%>/edit">Edit</a>
         </div>
         <div>
-          <span><%-m.time%></span>
+          <span><%-m.name%></span><br>
+          <span><%-m.street%></span><br>
+          <span><%-m.city%></span><br>
+          <span><%-m.state%></span><br>
+          <span><%-m.time%></span><br>
           <span><%-m.date%></span>
-          <span><%-m.name%></span>
-          <span><%-m.street%></span>
-          <span><%-m.city%></span>
-          <span><%-m.state%></span>
         </div>
 
       </script>
@@ -105,23 +105,24 @@
           <h1>Edit Appointment</h1>
         </div>
         <div>
-          <form>
+          <form name="appt-form">
             <div>
-              <input name="name" type="text" placeholder="Name" value="<%- m.appt.name %>" required>
+              <input name="name" type="text" placeholder="Name" value="<%- m.name %>" required>
             </div>
             <div>
-              <input name="street" type="text" placeholder="Street" value="<%- m.appt.street %>" required><br>
-              <input name="city" type="text" placeholder="City" value="<%- m.appt.city %>" required>
-              <input name="state" type="text" placeholder="State" value="<%- m.appt.state %>" required>
+              <input name="street" type="text" placeholder="Street" value="<%- m.street %>" required><br>
+              <input name="city" type="text" placeholder="City" value="<%- m.city %>" required>
+              <input name="state" type="text" placeholder="State" value="<%- m.state %>" required>
             </div>
             <div>
-              <input name="date" type="text" placeholder="Date" value="<%- m.appt.date %>" required>
+              <input name="date" type="text" placeholder="Date" value="<%- m.date %>" required>
             </div>
             <div>
-              <input name="time" type="text" placeholder="Time" value="<%- m.appt.time %>" required>
+              <input name="time" type="text" placeholder="Time" value="<%- m.time %>" required>
             </div>
             <div>
-              <button>Save</button>
+              <button name="save-appt">Save</button>
+              <button name="delete-appt">Delete</button>
             </div>
           </form>
         </div>
