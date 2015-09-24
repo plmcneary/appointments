@@ -1,0 +1,106 @@
+body{
+background:#00996e;
+font-family: 'Permanent Marker', cursive;
+font-weight:300;
+}
+
+.page-header{
+  background:black;
+  text-align:center;
+  position:relative;
+  font-size: 150%;
+  color:#EEE;
+  padding:5%;
+}
+
+
+.appt-list{
+  margin-top: 0;
+}
+
+.appt-new{
+  background:red;
+}
+
+.appt-edit{
+  background: green;
+}
+
+.appt-details{
+  background: #EEE;
+}
+
+ input{
+   display:block;
+   margin-left:0;
+ }
+ .save-button{
+   display:block;
+   border-radius:10%;
+   padding:1%;
+   position:absolute;
+   margin-left: 46%;
+
+ }
+
+.icon-plus{
+  color:#EEE;
+  text-align: center;
+  font-size:110%;
+
+}
+
+.icon-left-circled{
+  font-size: 205%;
+  color: #EEE;
+}
+
+.app-pointments{
+  font-size: 290%;
+  color: #EEE;
+  text-align: center;
+  margin-top:4%;
+  margin-bottom:2%;
+}
+
+.search{
+  color:#EEE;
+  font-size:110%;
+  text-align:left;
+  padding-top:4%;
+
+}
+
+.myapp{
+  margin-top:15%;
+  color:#EEE;
+  font-size:200%;
+  text-align: left;
+}
+
+.btn btn-primary{
+  font-color:#EEE;
+}
+
+.new{
+  color: #EEE;
+  font-size: 220%;
+  text-align:center;
+  margin-bottom: 12%;
+  margin-top: 23%;
+}
+.li{
+  margin-top:5%;
+  font-family: 'Raleway', sans-serif;
+  color:black;
+  font-size: 110%;
+}
+
+input.searchbox{
+  margin-left: 0;
+
+}
+
+input.appt-form{
+margin:0 auto;
+}

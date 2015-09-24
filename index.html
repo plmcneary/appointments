@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Appointments</title>
-    <link rel="stylesheet" href="css/meyer_css_reset.css"
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="bower_components/pickadate/lib/themes/classic.css">
+    <link rel="stylesheet" href="bower_components/pickadate/lib/themes/classic.date.css">
   </head>
   <body>
     <main class="main-content">
@@ -85,7 +87,7 @@
               <input name="state" type="text" placeholder="State" required>
             </div>
             <div>
-              <input name="date" type="text" placeholder="Date" required>
+              <input class="datepicker" name="date" type="text" placeholder="Date" required>
             </div>
             <div>
               <input name="time" type="text" placeholder="Time" required>
@@ -115,7 +117,7 @@
               <input name="state" type="text" placeholder="State" value="<%- m.state %>" required>
             </div>
             <div>
-              <input name="date" type="text" placeholder="Date" value="<%- m.date %>" required>
+              <input class="datepicker" name="date" type="text" placeholder="Date" value="<%- m.date %>" required>
             </div>
             <div>
               <input name="time" type="text" placeholder="Time" value="<%- m.time %>" required>
@@ -131,6 +133,9 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
+    <script src="bower_components/pickadate/lib/picker.js"></script>
+    <script src="bower_components/pickadate/lib/picker.date.js"></script>
+    <script src="bower_components/pickadate/lib/picker.time.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/router.js"></script>
