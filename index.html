@@ -5,8 +5,10 @@
     <title>Appointments</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="font-awesome-4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/pickadate/lib/themes/classic.css">
     <link rel="stylesheet" href="bower_components/pickadate/lib/themes/classic.date.css">
+    <link rel="icon" href="assets/images/calendar.ico">
   </head>
   <body>
     <main class="main-content">
@@ -16,7 +18,7 @@
 
       <script id="404" type="text/html">
         <header>
-          <h1 >404 not found</h1>
+          <h1 class="page-name">404 not found</h1>
         </header>
         <div>
           <a href="#appts">View all appointments</a>
@@ -26,71 +28,103 @@
       <!--Appointment List-->
 
       <script type="text/html" id="appt-list">
-        <div>
-          <span>Icon</span>
-          <h1>Appointments</h1>
-          <a href="#appts/new">+</a>
-        </div>
-        <div>
-          <input type=search>
-          <ul name="appt-list">
+        <header class="page-header">
+          <span class="fa fa-calendar-o header-link-left"></span>
+          <h1 class="page-name">Appointments</h1>
+          <a class="header-link-right" href="#appts/new">+</a>
+        </header>
+        <section class="appt-list-page page">
+          <input class="appt-search" name="search" type=search placeholder="Search Appointments">
+          <ul class="appt-list" name="appt-list">
             <% for (key in m) { %>
-            <a href="#appts/<%- m[key].name%>/details">
-              <li name="appt">
-                <span><%- m[key].name%></span>
-                <span><%- m[key].street%></span>
-                <span><%- m[key].city%></span>
-                <span><%- m[key].state%></span>
-                <span><%- m[key].date%></span>
-                <span><%- m[key].time%></span>
-              </li>
-            </a>
+            <li class="appt" name="appt">
+              <a href="#appts/<%- m[key].name%>/details"></a>
+              <div class="appt-name-div">
+                <span class="appt-list-item appt-list-name"><%- m[key].name%></span>
+              </div>
+              <div class="appt-address-div">
+                <span class="appt-list-item appt-list-street"><%- m[key].street%></span><br>
+                <span class="appt-list-item appt-list-city"><%- m[key].city%>,</span>
+                <span class="appt-list-item appt-list-state"><%- m[key].state%></span>
+              </div>
+              <div class="appt-time-div">
+                <span class="appt-list-item appt-list-date"><%- m[key].date%></span><br>
+                <span class="appt-list-item appt-list-time"><%- m[key].time%></span>
+              </div>
+            </li>
             <% } %>
           </ul>
-        </div>
+        </section>
+      </script>
+
+      <!--Appointment Search List-->
+
+      <script type="text/html" id="search-list">
+        <% for (key in m) { %>
+        <li class="appt" name="appt">
+          <a href="#appts/<%- m[key].name%>/details"></a>
+          <div class="appt-name-div">
+            <span class="appt-list-item appt-list-name"><%- m[key].name%></span>
+          </div>
+          <div class="appt-address-div">
+            <span class="appt-list-item appt-list-street"><%- m[key].street%></span><br>
+            <span class="appt-list-item appt-list-city"><%- m[key].city%>,</span>
+            <span class="appt-list-item appt-list-state"><%- m[key].state%></span>
+          </div>
+          <div class="appt-time-div">
+            <span class="appt-list-item appt-list-date"><%- m[key].date%></span><br>
+            <span class="appt-list-item appt-list-time"><%- m[key].time%></span>
+          </div>
+        </li>
+        <% } %>
       </script>
 
       <!--Appointment Details-->
 
       <script type="text/html" id="appt-details">
-        <div>
-          <a href="#appts">&larr;</a>
-          <h1>Details</h1>
-          <a href="#appts/<%-m.name%>/edit">Edit</a>
-        </div>
-        <div>
-          <span><%-m.name%></span><br>
-          <span><%-m.street%></span><br>
-          <span><%-m.city%></span><br>
-          <span><%-m.state%></span><br>
-          <span><%-m.time%></span><br>
-          <span><%-m.date%></span>
-        </div>
+        <header class="page-header">
+          <a class="header-link-left" href="#appts">&larr;</a>
+          <h1 class="page-name">Details</h1>
+          <a class="header-link-right" href="#appts/<%-m.name%>/edit">Edit</a>
+        </header>
+        <section class="appt-details-page page">
+          <div class="appt-info">
+            <p class="appt-info-details appt-details-name"><%-m.name%></p>
+            <p class="appt-info-details appt-details-street"><%-m.street%></p>
+            <p class="appt-info-details appt-details-city"><%-m.city%>, <%-m.state%></p>
+            <p class="appt-info-details appt-details-date"><%-m.date%></p>
+            <p class="appt-info-details appt-details-time"><%-m.time%></p>
+          </div>
+          <div>
+            <button name="delete-appt">Delete</button>
+          </div>
+        </section>
 
       </script>
 
       <!--New-->
 
       <script type="text/html" id="appt-new">
-        <div>
-          <a href="#appts">&larr;</a>
-          <h1>New Appointment</h1>
-        </div>
-        <div>
+        <header class="page-header">
+          <a class="header-link-left" href="#appts">&larr;</a>
+          <h1 class="page-name">New Appointment</h1>
+        </header>
+        <section class="appt-new-page page">
+          <div class="picka-holder"></div>
           <form name="appt-form">
             <div>
-              <input name="name" type="text" placeholder="Name" required>
+              <input class="appt-info" name="name" type="text" placeholder="Name" required>
             </div>
             <div>
-              <input name="street" type="text" placeholder="Street" required><br>
-              <input name="city" type="text" placeholder="City" required>
-              <input name="state" type="text" placeholder="State" required>
+              <input class="appt-info" name="street" type="text" placeholder="Street" required><br>
+              <input class="appt-info" name="city" type="text" placeholder="City" required>
+              <input class="appt-info" name="state" type="text" placeholder="State" required>
             </div>
             <div>
-              <input class="datepicker" name="date" type="text" placeholder="Date" required>
+              <input class="appt-info" name="date" type="text" placeholder="Date" required>
             </div>
             <div>
-              <input name="time" type="text" placeholder="Time" required>
+              <input class="appt-info" name="time" type="text" placeholder="Time" required>
             </div>
             <div>
               <button>Save</button>
@@ -102,32 +136,33 @@
       <!--Edit-->
 
       <script type="text/html" id="appt-edit">
-        <div>
-          <a href=#appts>&larr;</a>
-          <h1>Edit Appointment</h1>
-        </div>
-        <div>
+        <header class="page-header">
+          <a class="header-link-left" href=#appts>&larr;</a>
+          <h1 class="page-name">Edit Appointment</h1>
+        </header>
+        <section class="appt-edit-page page">
+          <div class="picka-holder"></div>
           <form name="appt-form">
             <div>
-              <input name="name" type="text" placeholder="Name" value="<%- m.name %>" required>
+              <input class="appt-info" name="name" type="text" placeholder="Name" value="<%- m.name %>" required>
             </div>
             <div>
-              <input name="street" type="text" placeholder="Street" value="<%- m.street %>" required><br>
-              <input name="city" type="text" placeholder="City" value="<%- m.city %>" required>
-              <input name="state" type="text" placeholder="State" value="<%- m.state %>" required>
+              <input class="appt-info" name="street" type="text" placeholder="Street" value="<%- m.street %>" required><br>
+              <input class="appt-info" name="city" type="text" placeholder="City" value="<%- m.city %>" required>
+              <input class="appt-info" name="state" type="text" placeholder="State" value="<%- m.state %>" required>
             </div>
             <div>
-              <input class="datepicker" name="date" type="text" placeholder="Date" value="<%- m.date %>" required>
+              <input class="appt-info" name="date" type="text" placeholder="Date" value="<%- m.date %>" required>
             </div>
             <div>
-              <input name="time" type="text" placeholder="Time" value="<%- m.time %>" required>
+              <input class="appt-info" name="time" type="text" placeholder="Time" value="<%- m.time %>" required>
             </div>
             <div>
               <button name="save-appt">Save</button>
               <button name="delete-appt">Delete</button>
             </div>
           </form>
-        </div>
+        </section>
       </script>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -147,6 +182,7 @@
     <script src="js/appts_controller.js"></script>
     <script src="js/new_controller.js"></script>
     <script src="js/edit_controller.js"></script>
+    <script src="js/weather.js"></script>
     <script src="js/appt_details_controller.js"></script>
     <script src="js/init.js"></script>
   </body>

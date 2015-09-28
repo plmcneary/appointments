@@ -4,6 +4,13 @@ app.router.route('appts/:name/edit', function (name) {
 
   app.show('appt-edit', appt);
 
+  $("[name='date']").pickadate({
+    container: '.picka-holder'
+  });
+  $("[name='time']").pickatime({
+    container: '.picka-holder'
+  });
+
   $("[name='appt-form']").on('submit', function (e) {
     e.preventDefault();
 

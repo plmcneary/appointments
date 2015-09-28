@@ -1,106 +1,205 @@
-body{
-background:#00996e;
-font-family: 'Permanent Marker', cursive;
-font-weight:300;
+body {
+  color: #39414B;
+  font-family: 'Helvetica';
+  background: #EFEFEF;
 }
 
-.page-header{
-  background:black;
-  text-align:center;
-  position:relative;
-  font-size: 150%;
-  color:#EEE;
-  padding:5%;
+a {
+  color: #39414B;
+  text-decoration: none;
+}
+
+input, button {
+  font-size: 20px;
+  color: #39414B;
+  background-color: #EFEFEF;
+  padding: 0.3em;
+  margin: 0.6em;
+  border: solid #39414B;
+  text-decoration: none;
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  color: #39414B;
+}
+
+:-moz-placeholder {
+  color: #39414B;
+}
+
+::-moz-placeholder {
+  color: #39414B;
+}
+
+:-ms-input-placeholder {
+  color: #39414B;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 
-.appt-list{
-  margin-top: 0;
-}
+/*HEADER*/
 
-.appt-new{
-  background:red;
-}
-
-.appt-edit{
-  background: green;
-}
-
-.appt-details{
-  background: #EEE;
-}
-
- input{
-   display:block;
-   margin-left:0;
- }
- .save-button{
-   display:block;
-   border-radius:10%;
-   padding:1%;
-   position:absolute;
-   margin-left: 46%;
-
- }
-
-.icon-plus{
-  color:#EEE;
+.page-header {
+  font-size: 40px;
   text-align: center;
-  font-size:110%;
-
+  padding: 1em 0em;
+  border-bottom: solid 3px #39414B;
+  position: relative;
 }
 
-.icon-left-circled{
-  font-size: 205%;
-  color: #EEE;
+.header-link-left {
+  padding: 1em 0em 1em 5%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
 }
 
-.app-pointments{
-  font-size: 290%;
-  color: #EEE;
+.page-name {
+  display: inline;
+}
+
+.header-link-right {
+  padding: 1em 5% 1em 0em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/*PAGE*/
+
+.page {
+  padding: 1em;
   text-align: center;
-  margin-top:4%;
-  margin-bottom:2%;
 }
 
-.search{
-  color:#EEE;
-  font-size:110%;
-  text-align:left;
-  padding-top:4%;
+
+/*APPOINTMENT LIST PAGE*/
+
+.appt-list {
 
 }
 
-.myapp{
-  margin-top:15%;
-  color:#EEE;
-  font-size:200%;
+.appt-search {
+  text-align: center;
+  min-width: 12em;
+  width: 40%;
+}
+
+.appt {
+  background-color: #EFEFEF;
+  margin-top: 1.2em;
+  margin-right: auto;
+  margin-left: auto;
+  border: solid 3px #39414B;
+  max-width: 700px;
+  text-align: left;
+  position: relative;
+}
+
+.appt a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.appt div {
+  display: inline-block;
+  padding: 0.6em 0.3em;
+  vertical-align: top;
+}
+
+.appt-name-div {
+  font-size: 20px;
+  width: 150px;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.appt-address-div {
+  line-height: 1.3em;
+}
+
+.appt-time-div {
+  line-height: 1.3em;
+  text-align: center;
+  width: 200px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.appt-list-item {
+  padding: 0.2em;
   text-align: left;
 }
 
-.btn btn-primary{
-  font-color:#EEE;
+.appt-list-name {
+  font-weight: bold;
 }
 
-.new{
-  color: #EEE;
-  font-size: 220%;
-  text-align:center;
-  margin-bottom: 12%;
-  margin-top: 23%;
-}
-.li{
-  margin-top:5%;
-  font-family: 'Raleway', sans-serif;
-  color:black;
-  font-size: 110%;
+
+/*APPOINTMENT DETAILS PAGE*/
+
+.appt-info-details {
+  font-size: 32px;
+  margin: 0.5em 0em;
 }
 
-input.searchbox{
-  margin-left: 0;
-
+.appt-details-name {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 0.7em;
 }
 
-input.appt-form{
-margin:0 auto;
+.appt-details-date {
+  margin-top: 0.7em;
+}
+
+.weather-data {
+  font-size: 32px;
+  margin: 0.7em 0em 0.5em 0em;
+}
+
+.weather-icon {
+  margin-left: 0.6em;
+  height: 32px;
+}
+
+/*PICKADATE*/
+
+.picker {
+  margin-right: auto;
+  margin-left: auto;
+  outline: none;
+}
+
+.picker__holder {
+  margin-right: auto;
+  margin-left: auto;
+  outline: none;
+}
+
+.picker__frame {
+  outline: none;
+}
+
+.picker__list {
+  padding-top: 1em;
+}
+
+.picker__list-item {
+  border: solid 3px #39414B;
+  padding: 0.2em;
+  margin: 0.3em;
+  text-align: center;
 }
